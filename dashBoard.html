@@ -67,12 +67,14 @@
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       // Define page templates
       const templates = {
         slider: `
+
+
 <div class="">
-  
   <button
     id="upload-btn"
     class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded justify-end"
@@ -112,18 +114,310 @@
     </div>
   </div>
 </div>
+
+
+<div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12 my-5">
+  <div class="-m-1 flex flex-wrap md:-m-2">
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+    <div class="flex w-1/3 flex-wrap mb-4">
+      <div class="w-full p-1 md:p-2">
+        <img
+          alt="gallery"
+          class="block h-full w-full rounded-lg object-cover object-center"
+          src="./assets/images/slider-1.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
 `,
         menus: `
-        <div class="mb-8">
-          <h1 class="text-3xl font-semibold">menus</h1>
-          <p class="text-gray-600">Manage menus here.</p>
+        <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg">
+          <div class="p-4">
+            <form class="max-w-5xl mx-auto rounded-lg overflow-hidden">
+              <div id="card1">
+                <div class="p-4">
+                  <label for="title" class="text-gray-700">Title</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
+                <div class="p-4">
+                  <label for="description" class="text-gray-700"
+                    >Description</label
+                  >
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="w-full px-3 h-36 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  ></textarea>
+                </div>
+              </div>
+              <div id="card2" class="hidden">
+                <div id="video-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Video Upload</h2>
+                    <div
+                      id="video-dropzone"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="video-input"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload video</span
+                        >
+                        <input
+                          id="video-input"
+                          type="file"
+                          class="hidden"
+                          accept="video/*"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="video-preview" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Video Preview:</h3>
+                      <div
+                        id="video-preview-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="image-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Image Upload</h2>
+                    <div
+                      id="image-dropzone2"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="image-input2"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload image</span
+                        >
+                        <input
+                          id="image-input2"
+                          type="file"
+                          class="hidden"
+                          accept="image/*"
+                          multiple
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="image-preview2" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Image Preview:</h3>
+                      <div
+                        id="image-preview2-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="justify" class="flex justify-between">
+                <button
+                  id="previousButton"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-l hidden"
+                >
+                  Previous
+                </button>
+                <button
+                  id="nextButtonmenu"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-r"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
+
       `,
         gallary: `
-        <div class="mb-8">
-          <h1 class="text-3xl font-semibold">gallary</h1>
-          <p class="text-gray-600">Manage gallary here.</p>
+        <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg">
+          <div class="p-4">
+            <form class="max-w-5xl mx-auto rounded-lg overflow-hidden">
+              <div id="card1">
+                <div class="p-4">
+                  <label for="title" class="text-gray-700">Title</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
+                <div class="p-4">
+                  <label for="description" class="text-gray-700"
+                    >Description</label
+                  >
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="w-full px-3 h-36 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  ></textarea>
+                </div>
+              </div>
+              <div id="card2" class="hidden">
+                <div id="video-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Video Upload</h2>
+                    <div
+                      id="video-dropzone"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="video-input"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload video</span
+                        >
+                        <input
+                          id="video-input"
+                          type="file"
+                          class="hidden"
+                          accept="video/*"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="video-preview" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Video Preview:</h3>
+                      <div
+                        id="video-preview-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="image-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Image Upload</h2>
+                    <div
+                      id="image-dropzone2"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="image-input2"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload image</span
+                        >
+                        <input
+                          id="image-input2"
+                          type="file"
+                          class="hidden"
+                          accept="image/*"
+                          multiple
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="image-preview2" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Image Preview:</h3>
+                      <div
+                        id="image-preview2-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="justify" class="flex justify-between">
+                <button
+                  id="previousButton"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-l hidden"
+                >
+                  Previous
+                </button>
+                <button
+                  id="nextButtonmenu"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-r"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
       `,
         contract: `
         <div class="container mx-auto mt-8">
@@ -177,221 +471,330 @@
       </table>
     </div>
       `,
-        about: `
-        <div >
-      <form
-        class="max-w-5xl mx-auto  rounded-lg overflow-hidden "
-      >
-        <div class="p-4">
-          <label for="title" class="text-gray-700">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-          />
+        about: `   <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg">
+          <div class="p-4">
+            <form class="max-w-5xl mx-auto rounded-lg overflow-hidden">
+              <div id="card1">
+                <div class="p-4">
+                  <label for="title" class="text-gray-700">Title</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
+                <div class="p-4">
+                  <label for="description" class="text-gray-700"
+                    >Description</label
+                  >
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="w-full px-3 h-36 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  ></textarea>
+                </div>
+              </div>
+              <div id="card2" class="hidden">
+                <div id="video-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Video Upload</h2>
+                    <div
+                      id="video-dropzone"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="video-input"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload video</span
+                        >
+                        <input
+                          id="video-input"
+                          type="file"
+                          class="hidden"
+                          accept="video/*"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="video-preview" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Video Preview:</h3>
+                      <div
+                        id="video-preview-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="image-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Image Upload</h2>
+                    <div
+                      id="image-dropzone2"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="image-input2"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload image</span
+                        >
+                        <input
+                          id="image-input2"
+                          type="file"
+                          class="hidden"
+                          accept="image/*"
+                          multiple
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="image-preview2" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Image Preview:</h3>
+                      <div
+                        id="image-preview2-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="justify" class="flex justify-between">
+                <button
+                  id="previousButton"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-l hidden"
+                >
+                  Previous
+                </button>
+                <button
+                  id="nextButtonmenu"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-r"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="p-4">
-          <label for="description" class="text-gray-700">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            class="w-full px-3 h-64 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-          ></textarea>
-
- 
-
-        <button type="button" id="nextButton" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 ml-auto">Next</button>
-        <div id="next-section" class="hidden">
-          <div class="flex flex-col">
-                <label for="videoInput" class="block mb-2">Video Upload</label>
-               <input type="file" id="videoInput" class="border             border-gray-300 py-2 px-4 mb-4">
-
-                <label for="imageInput" class="block mb-2">Image Upload</label>
-               <input type="file" id="imageInput" class="border             border-gray-300 py-2 px-4 mb-4">
-
-               <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 ml-auto">Upload</button>
-               </div>
-</div>
-
-
-    </form>
-  </div>
-</div>
+      </div>
+       
       `,
       };
+      $(document).ready(function () {
+        // Handle navigation clicks
+        const navLinks = $("nav a");
 
-      // Handle navigation clicks
-      const navLinks = document.querySelectorAll("nav a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
+        // Add click event listener to nav links
+        navLinks.click(function (e) {
           e.preventDefault();
-          const page = e.target.dataset.page;
+          const page = $(this).data("page");
           updateContent(page);
-          history.pushState({ page }, "", `#${page}`);
-        });
-      });
-
-      // Update the content for slider
-      function updateContent(page) {
-        const contentContainer = document.getElementById("content");
-        contentContainer.innerHTML = templates[page];
-
-        // functions for updated
-        if (page === "slider") {
-          setupImageUpload();
-        }
-
-        // about section next button fuctionality
-        if (page === "about") {
-          const nextBtn = document.getElementById("nextButton");
-          const nextSection = document.getElementById("next-section");
-
-          // Add click event listener to the button
-          nextBtn.addEventListener("click", () => {
-            nextSection.classList.toggle("hidden");
-
-            // Toggle the visibility of the button
-            if (nextSection.classList.contains("hidden")) {
-              nextBtn.style.display = "block";
-            } else {
-              nextBtn.style.display = "none";
-            }
-          });
-        }
-      }
-
-      // Handle back and forward navigation
-      window.addEventListener("popstate", (e) => {
-        const page = e.state ? e.state.page : "slider";
-        updateContent(page);
-      });
-
-      // Setup image upload
-      function setupImageUpload() {
-        const dropzone = document.getElementById("dropzone");
-        const fileInput = document.getElementById("file-input");
-        const preview = document.getElementById("preview");
-        const imagePreviewContainer = document.getElementById(
-          "image-preview-container"
-        );
-
-        const uploadBtn = document.getElementById("upload-btn");
-        const uploadSection = document.getElementById("upload-section");
-
-        dropzone.addEventListener("dragover", (e) => {
-          e.preventDefault();
-          dropzone.classList.add("border-indigo-600");
+          history.pushState({ page }, "", "#" + page);
         });
 
-        dropzone.addEventListener("dragleave", () => {
-          dropzone.classList.remove("border-indigo-600");
-        });
+        // Update the content for slider
+        function updateContent(page) {
+          const contentContainer = $("#content");
+          contentContainer.html(templates[page]);
 
-        dropzone.addEventListener("drop", (e) => {
-          e.preventDefault();
-          dropzone.classList.remove("border-indigo-600");
-
-          const file = e.dataTransfer.files[0];
-          displayImage(file);
-        });
-
-        fileInput.addEventListener("change", () => {
-          const file = fileInput.files[0];
-          displayImage(file);
-        });
-        uploadBtn.addEventListener("click", () => {
-          uploadSection.classList.toggle("hidden");
-        });
-
-        function displayImage(file) {
-          const reader = new FileReader();
-
-          reader.onload = () => {
-            const imagePreviewWrapper = document.createElement("div");
-            imagePreviewWrapper.classList.add(
-              "flex-col",
-              "items-center",
-              "mb-4"
-            );
-
-            const imagePreview = document.createElement("img");
-            imagePreview.src = reader.result;
-            imagePreview.classList.add(
-              "max-w-32",
-              "max-h-48",
-              "mt-4",
-              "mr-4",
-              "rounded"
-            );
-
-            const deleteBtn = document.createElement("button");
-            deleteBtn.innerHTML = '<i class="fas fa-trash text-red-500"></i>';
-            deleteBtn.classList.add(
-              "p-2",
-              "rounded",
-              "border",
-              "border-red-500",
-              "mt-2"
-            );
-            deleteBtn.addEventListener("click", () => {
-              deleteImage(imagePreviewWrapper);
-            });
-
-            const updateInput = document.createElement("input");
-            updateInput.type = "file";
-            updateInput.classList.add("hidden");
-            updateInput.addEventListener("change", () => {
-              updateImage(updateInput, imagePreview);
-            });
-
-            const updateBtn = document.createElement("button");
-            updateBtn.innerHTML = '<i class="fas fa-upload text-blue-500"></i>';
-            updateBtn.classList.add(
-              "p-2",
-              "rounded",
-              "border",
-              "border-blue-500",
-              "cursor-pointer",
-              "mt-2",
-              "float-right",
-              "mr-4"
-            );
-            updateBtn.addEventListener("click", () => {
-              updateInput.click();
-            });
-
-            imagePreviewWrapper.appendChild(imagePreview);
-            imagePreviewWrapper.appendChild(deleteBtn);
-            imagePreviewWrapper.appendChild(updateInput);
-            imagePreviewWrapper.appendChild(updateBtn);
-
-            imagePreviewContainer.appendChild(imagePreviewWrapper);
-            preview.classList.remove("hidden");
-          };
-
-          reader.readAsDataURL(file);
-        }
-
-        function deleteImage(imagePreviewWrapper) {
-          imagePreviewWrapper.remove();
-
-          if (imagePreviewContainer.childElementCount === 0) {
-            preview.classList.add("hidden");
+          // Functions for updated
+          if (page === "slider") {
+            setupImageUpload();
           }
         }
 
-        function updateImage(updateInput, imagePreview) {
-          const file = updateInput.files[0];
-          const reader = new FileReader();
+        // Handle back and forward navigation
+        $(window).on("popstate", function (e) {
+          const page = e.originalEvent.state ? e.originalEvent.state.page : "";
+          updateContent(page);
+        });
 
-          reader.onload = () => {
-            imagePreview.src = reader.result;
-          };
+        // Setup image upload
+        function setupImageUpload() {
+          const dropzone = $("#dropzone");
+          const fileInput = $("#file-input");
+          const preview = $("#preview");
+          const imagePreviewContainer = $("#image-preview-container");
+          const uploadBtn = $("#upload-btn");
+          const uploadSection = $("#upload-section");
 
-          reader.readAsDataURL(file);
+          dropzone.on("dragover", function (e) {
+            e.preventDefault();
+            dropzone.addClass("border-indigo-600");
+          });
+
+          dropzone.on("dragleave", function () {
+            dropzone.removeClass("border-indigo-600");
+          });
+
+          dropzone.on("drop", function (e) {
+            e.preventDefault();
+            dropzone.removeClass("border-indigo-600");
+
+            const file = e.originalEvent.dataTransfer.files[0];
+            displayImage(file);
+          });
+
+          fileInput.on("change", function () {
+            const file = fileInput.prop("files")[0];
+            displayImage(file);
+          });
+
+          uploadBtn.on("click", function () {
+            uploadSection.toggleClass("hidden");
+          });
+
+          function displayImage(file) {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+              const imagePreviewWrapper = $("<div></div>").addClass(
+                "flex-col items-center mb-4"
+              );
+              const imagePreview = $("<img>")
+                .attr("src", reader.result)
+                .addClass("max-w-32 max-h-48 mt-4 mr-4 rounded");
+              const deleteBtn = $("<button></button>")
+                .html('<i class="fas fa-trash text-red-500"></i>')
+                .addClass("p-2 rounded border border-red-500 mt-2")
+                .on("click", function () {
+                  deleteImage(imagePreviewWrapper);
+                });
+              const updateInput = $("<input>")
+                .attr("type", "file")
+                .addClass("hidden")
+                .on("change", function () {
+                  updateImage(updateInput, imagePreview);
+                });
+              const updateBtn = $("<button></button>")
+                .html('<i class="fas fa-upload text-blue-500"></i>')
+                .addClass(
+                  "p-2 rounded border border-blue-500 cursor-pointer mt-2 float-right mr-4"
+                )
+                .on("click", function () {
+                  updateInput.click();
+                });
+
+              imagePreviewWrapper.append(imagePreview);
+              imagePreviewWrapper.append(deleteBtn);
+              imagePreviewWrapper.append(updateInput);
+              imagePreviewWrapper.append(updateBtn);
+
+              imagePreviewContainer.append(imagePreviewWrapper);
+              preview.removeClass("hidden");
+            };
+
+            reader.readAsDataURL(file);
+          }
+
+          function deleteImage(imagePreviewWrapper) {
+            imagePreviewWrapper.remove();
+
+            if (imagePreviewContainer.children().length === 0) {
+              preview.addClass("hidden");
+            }
+          }
+
+          function updateImage(updateInput, imagePreview) {
+            const file = updateInput.prop("files")[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+              imagePreview.attr("src", reader.result);
+            };
+
+            reader.readAsDataURL(file);
+          }
         }
-      }
+
+        // Handle menu
+        let currentCard = 1;
+        $("#nextButtonmenu").on("click", function (event) {
+          event.preventDefault();
+          if (currentCard === 1) {
+            $("#card1").addClass("hidden");
+            $("#card2").removeClass("hidden");
+            currentCard = 2;
+            $("#nextButtonmenu").text("Finish");
+            $("#previousButton").removeClass("hidden");
+          } else {
+            // Perform finish actions here
+            alert("Form submitted!");
+          }
+          updateButtonAlignment();
+        });
+
+        $("#previousButton").on("click", function () {
+          if (currentCard === 2) {
+            $("#card1").removeClass("hidden");
+            $("#card2").addClass("hidden");
+            currentCard = 1;
+            $("#nextButtonmenu").text("Next");
+            $("#previousButton").addClass("hidden");
+          }
+          updateButtonAlignment();
+        });
+
+        // Update button alignment
+        function updateButtonAlignment() {
+          if (currentCard === 1) {
+            $("#justify").removeClass("justify-between");
+            $("#justify").addClass("justify-end");
+          } else {
+            $("#justify").removeClass("justify-end");
+            $("#justify").addClass("justify-between");
+          }
+        }
+
+        updateButtonAlignment();
+
+        // Image upload preview logic
+        $("#image-input2").on("change", function (e) {
+          let files = e.target.files;
+          if (files.length > 0) {
+            $("#image-preview2-container").html(""); // Clear existing previews
+            $("#image-preview2").removeClass("hidden");
+            for (let i = 0; i < files.length; i++) {
+              let file = files[i];
+              let reader = new FileReader();
+              reader.onload = function (e) {
+                let imageElement = $("<img>")
+                  .addClass("m-2 w-48 h-48")
+                  .attr("src", e.target.result);
+                $("#image-preview2-container").append(imageElement);
+              };
+              reader.readAsDataURL(file);
+            }
+          }
+        });
+
+        // Video upload preview logic
+        $("#video-input").on("change", function (e) {
+          let file = e.target.files[0];
+          if (file) {
+            $("#video-preview-container").html(""); // Clear existing preview
+            $("#video-preview").removeClass("hidden");
+            let videoElement = $("<video>")
+              .addClass("m-2 w-48 h-48")
+              .attr("controls", true)
+              .attr("src", URL.createObjectURL(file));
+            $("#video-preview-container").append(videoElement);
+          }
+        });
+      });
     </script>
   </body>
 </html>
