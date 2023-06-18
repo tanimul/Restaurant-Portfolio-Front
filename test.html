@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Image and Video Upload Preview</title>
+  </head>
+
+  <body class="bg-gray-200">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg">
+          <div class="p-4">
+            <form class="max-w-5xl mx-auto rounded-lg overflow-hidden">
+              <div id="card1">
+                <div class="p-4">
+                  <label for="title" class="text-gray-700">Title</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="w-full px-3 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
+                <div class="p-4">
+                  <label for="description" class="text-gray-700"
+                    >Description</label
+                  >
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="w-full px-3 h-36 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                  ></textarea>
+                </div>
+              </div>
+              <div id="card2" class="hidden">
+                <div id="video-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Video Upload</h2>
+                    <div
+                      id="video-dropzone"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="video-input"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload video</span
+                        >
+                        <input
+                          id="video-input"
+                          type="file"
+                          class="hidden"
+                          accept="video/*"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="video-preview" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Video Preview:</h3>
+                      <div
+                        id="video-preview-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="image-upload-section">
+                  <div class="p-4">
+                    <h2 class="text-2xl font-bold mb-4">Image Upload</h2>
+                    <div
+                      id="image-dropzone2"
+                      class="relative border-2 border-dashed border-gray-300 h-14 flex items-center justify-center outline-none hover:border-gray-600"
+                    >
+                      <label
+                        for="image-input2"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer"
+                      >
+                        <span class="text-gray-400"
+                          >Click or Drag & Drop to upload image</span
+                        >
+                        <input
+                          id="image-input2"
+                          type="file"
+                          class="hidden"
+                          accept="image/*"
+                          multiple
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="max-w-5xl mx-auto bg-white mt-6 px-6 rounded-md shadow"
+                  >
+                    <div id="image-preview2" class="hidden">
+                      <h3 class="text-lg font-bold mt-4">Image Preview:</h3>
+                      <div
+                        id="image-preview2-container"
+                        class="flex flex-wrap items-center justify-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="justify" class="flex justify-between">
+                <button
+                  id="previousButton"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-l hidden"
+                >
+                  Previous
+                </button>
+                <button
+                  id="nextButtonmenu"
+                  class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-r"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        let currentCard = 1;
+        document
+          .querySelector("#nextButtonmenu")
+          .addEventListener("click", function (event) {
+            console.log("Next button clicked");
+          });
+
+        document
+          .querySelector("#nextButtonmenu")
+          .addEventListener("click", function (event) {
+            event.preventDefault();
+            if (currentCard === 1) {
+              document.querySelector("#card1").classList.add("hidden");
+              document.querySelector("#card2").classList.remove("hidden");
+              currentCard = 2;
+              document.querySelector("#nextButtonmenu").textContent = "Finish";
+              document
+                .querySelector("#previousButton")
+                .classList.remove("hidden");
+            } else {
+              // Perform finish actions here
+              alert("Form submitted!");
+            }
+            updateButtonAlignment();
+          });
+
+        document
+          .querySelector("#previousButton")
+          .addEventListener("click", function () {
+            if (currentCard === 2) {
+              document.querySelector("#card1").classList.remove("hidden");
+              document.querySelector("#card2").classList.add("hidden");
+              currentCard = 1;
+              document.querySelector("#nextButtonmenu").textContent = "Next";
+              document.querySelector("#previousButton").classList.add("hidden");
+            }
+            updateButtonAlignment();
+          });
+
+        // Update button alignment
+        function updateButtonAlignment() {
+          if (currentCard === 1) {
+            document
+              .querySelector("#justify")
+              .classList.remove("justify-between");
+            document.querySelector("#justify").classList.add("justify-end");
+          } else {
+            document.querySelector("#justify").classList.remove("justify-end");
+            document.querySelector("#justify").classList.add("justify-between");
+          }
+        }
+
+        updateButtonAlignment();
+
+        // Image upload preview logic
+        document
+          .querySelector("#image-input2")
+          .addEventListener("change", function (e) {
+            let files = e.target.files;
+            if (files.length > 0) {
+              document.querySelector("#image-preview2-container").innerHTML =
+                ""; // Clear existing previews
+              document
+                .querySelector("#image-preview2")
+                .classList.remove("hidden");
+              for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+                let reader = new FileReader();
+                reader.onload = (function (file) {
+                  return function (e) {
+                    let imagePreview = document.createElement("img");
+                    imagePreview.src = e.target.result;
+                    imagePreview.classList.add(
+                      "w-32",
+                      "h-32",
+                      "object-cover",
+                      "rounded-md",
+                      "m-2"
+                    );
+                    document
+                      .querySelector("#image-preview2-container")
+                      .appendChild(imagePreview);
+                  };
+                })(file);
+                reader.readAsDataURL(file);
+              }
+            } else {
+              document.querySelector("#image-preview2").classList.add("hidden");
+            }
+          });
+
+        // Video upload preview logic
+        document
+          .querySelector("#video-input")
+          .addEventListener("change", function (e) {
+            let file = e.target.files[0];
+            if (file) {
+              document.querySelector("#video-preview-container").innerHTML = ""; // Clear existing preview
+              document
+                .querySelector("#video-preview")
+                .classList.remove("hidden");
+              let videoPreview = document.createElement("video");
+              videoPreview.src = URL.createObjectURL(file);
+              videoPreview.classList.add("w-64", "h-auto", "rounded-md", "m-2");
+              document
+                .querySelector("#video-preview-container")
+                .appendChild(videoPreview);
+            } else {
+              document.querySelector("#video-preview").classList.add("hidden");
+            }
+          });
+
+        // Enable drag and drop functionality for images
+        document
+          .querySelector("#image-dropzone2")
+          .addEventListener("dragover", function (e) {
+            e.preventDefault();
+            this.classList.add("border-gray-600");
+          });
+
+        document
+          .querySelector("#image-dropzone2")
+          .addEventListener("dragleave", function (e) {
+            e.preventDefault();
+            this.classList.remove("border-gray-600");
+          });
+
+        document
+          .querySelector("#image-dropzone2")
+          .addEventListener("drop", function (e) {
+            e.preventDefault();
+            this.classList.remove("border-gray-600");
+            let files = e.dataTransfer.files;
+            document.querySelector("#image-input2").files = files;
+            document
+              .querySelector("#image-input2")
+              .dispatchEvent(new Event("change"));
+          });
+
+        // Enable drag and drop functionality for videos
+        document
+          .querySelector("#video-dropzone")
+          .addEventListener("dragover", function (e) {
+            e.preventDefault();
+            this.classList.add("border-gray-600");
+          });
+
+        document
+          .querySelector("#video-dropzone")
+          .addEventListener("dragleave", function (e) {
+            e.preventDefault();
+            this.classList.remove("border-gray-600");
+          });
+
+        document
+          .querySelector("#video-dropzone")
+          .addEventListener("drop", function (e) {
+            e.preventDefault();
+            this.classList.remove("border-gray-600");
+            let files = e.dataTransfer.files;
+            document.querySelector("#video-input").files = files;
+            document
+              .querySelector("#video-input")
+              .dispatchEvent(new Event("change"));
+          });
+      });
+    </script>
+  </body>
+</html>
